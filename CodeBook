@@ -1,0 +1,148 @@
+                                          DATA DICTIONARY   - 2016 UCI HAR DATASET
+
+=======================================================================================================================================
+                                                Study Design
+                                                
+"The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. " 
+
+-By DITEN - Universit?degli Studi di Genova. Via Opera Pia 11A, I-16145, Genoa, Italy. activityrecognition@smartlab.ws. www.smartlab.ws
+-Copied from README file in the original data set package.                                                  
+=======================================================================================================================================
+                                                Data Process Procedure
+1. Download the original dataset from this site: 
+    http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+2. Unzip package to a subfolder called "data".
+3. Load the following six files to R: "subject_test.txt", "X_test.txt", "y_test.txt", "subject_train.txt", "X_train.txt" and "y_train.txt"
+4. Join the three test datasets by column: "subject_test.txt", "X_test.txt" and "y_test.txt". Same for the three train dataset.
+5. Join the test data set and train data set by row.
+6. Load "features.txt" file. It includes all the measured variable names for the dataset in step 5. 
+7. Select variable names with "mean" or "std". Subset the dataset in step 5 by column according to the selected variable names.
+8. Load "activity_labels.txt" file. Merge it with the main dataset. It added a column with real activity name.
+9. Rename all colmuns with more descriptive names. Using the existing variable names in "features.txt" for all the measurement data variables.
+10.Summarize the dataset by take average of each measurement variable for each activity and each subject. Save it to"final_tidy_data.csv".
+
+=======================================================================================================================================
+
+                                          Code Book
+
+Subject_num
+  An indentifier of the Subject involoved in the experiment.
+    1-30
+  
+Activities
+  The 6 activity names in the measurement.
+    WALKING
+    WALKING_UPSTAIRS
+    WALKING_DOWNSTAIRS
+    SITTING
+    STANDING
+    LAYING
+
+tBodyAcc-mean()-X	
+tBodyAcc-mean()-Y	
+tBodyAcc-mean()-Z	
+tBodyAcc-std()-X	
+tBodyAcc-std()-Y	
+tBodyAcc-std()-Z
+  Mean and standard deviation of the time domain body linear acceration signals in X,Y and Z direction.
+
+tGravityAcc-mean()-X
+tGravityAcc-mean()-Y
+tGravityAcc-mean()-Z
+tGravityAcc-std()-X	
+tGravityAcc-std()-Y	
+tGravityAcc-std()-Z
+   Mean and standard deviation of the time domain gravity acceration signals in X,Y and Z direction.  
+   
+tBodyAccJerk-mean()-X
+tBodyAccJerk-mean()-Y
+tBodyAccJerk-mean()-Z
+tBodyAccJerk-std()-X
+tBodyAccJerk-std()-Y
+tBodyAccJerk-std()-Z
+   Mean and standard deviation of the time domain body linear acceleration Jerk signals in X,Y and Z direction.   
+
+tBodyGyro-mean()-X
+tBodyGyro-mean()-Y
+tBodyGyro-mean()-Z
+tBodyGyro-std()-X
+tBodyGyro-std()-Y
+tBodyGyro-std()-Z
+    Mean and standard deviation of the time domain angular velocity acceleration in X,Y and Z direction.   
+
+tBodyGyroJerk-mean()-X
+tBodyGyroJerk-mean()-Y
+tBodyGyroJerk-mean()-Z
+tBodyGyroJerk-std()-X
+tBodyGyroJerk-std()-Y
+tBodyGyroJerk-std()-Z
+    Mean and standard deviation of the time domain angular velocity acceleration Jerk signal in X,Y and Z direction.   
+
+tBodyAccMag-mean()
+tBodyAccMag-std()
+    Mean and standard deviation of time domain body linear acceleration signals magnitude. 
+    
+tGravityAccMag-mean()
+tGravityAccMag-std()
+    Mean and standard deviation of time domain gravity acceleration signals magnitude. 
+    
+tBodyAccJerkMag-mean()
+tBodyAccJerkMag-std()
+    Mean and standard deviation of the time domain body linear acceleration Jerk signals magnitude. 
+
+tBodyGyroMag-mean()
+tBodyGyroMag-std()
+    Mean and standard deviation of the time domain angular velocity acceleration magnitude. 
+    
+tBodyGyroJerkMag-mean()
+tBodyGyroJerkMag-std()
+    Mean and standard deviation of the time domain angular velocity acceleration Jerk signal magnitude. 
+    
+fBodyAcc-mean()-X
+fBodyAcc-mean()-Y
+fBodyAcc-mean()-Z
+fBodyAcc-std()-X
+fBodyAcc-std()-Y
+fBodyAcc-std()-Z
+    Mean and standard deviation of the frequency domain body linear acceration signals in X,Y and Z direction.    
+
+fBodyAccJerk-mean()-X
+fBodyAccJerk-mean()-Y
+fBodyAccJerk-mean()-Z
+fBodyAccJerk-std()-X
+fBodyAccJerk-std()-Y
+fBodyAccJerk-std()-Z
+   Mean and standard deviation of the frequency domain body linear acceleration Jerk signals in X,Y and Z direction. 
+   
+fBodyGyro-mean()-X
+fBodyGyro-mean()-Y
+fBodyGyro-mean()-Z
+fBodyGyro-std()-X
+fBodyGyro-std()-Y
+fBodyGyro-std()-Z
+    Mean and standard deviation of the frequency domain angular velocity acceleration in X,Y and Z direction. 
+
+fBodyAccMag-mean()
+fBodyAccMag-std()
+    Mean and standard deviation of frequency domain body linear acceleration signals magnitude. 
+
+fBodyBodyAccJerkMag-mean()
+fBodyBodyAccJerkMag-std()
+    Mean and standard deviation of the frequency domain body linear acceleration Jerk signals magnitude. 
+    
+fBodyBodyGyroMag-mean()
+fBodyBodyGyroMag-std()
+    Mean and standard deviation of the frequency domain angular velocity acceleration magnitude. 
+    
+fBodyBodyGyroJerkMag-mean()
+fBodyBodyGyroJerkMag-std()
+    Mean and standard deviation of the frequency domain angular velocity acceleration Jerk signal magnitude. 
+   
+    
+    
+    
+
+  
+  
