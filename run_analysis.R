@@ -69,9 +69,9 @@ colnames(final_tidy_data)[2]<-"Activities"
 
 ##save data
 Des<-"./final_tidy_data.txt"
-write.csv(final_tidy_data,Des,row.names=FALSE)
+write.table(final_tidy_data,Des,row.names=FALSE)
 
 
 ####Read data table
-data_view<-read.csv(Des,header=T)
-view(data_view)
+data_view<-read.table(Des,header=T)
+
