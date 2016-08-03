@@ -38,7 +38,7 @@ final_data<-rbind(test_data,train_data)
 
 ## Extract only the measurements on the mean and standard deviation for each measurement
 Des<-"./features.txt"
-features<-read.table(Des)S
+features<-read.table(Des)
 
 ## Get mean and std columns order from features.txt file.
 tmp<-grep("mean\\(\\)|std\\(\\)",features$V2)
@@ -63,7 +63,7 @@ colnames(final_data_sub)[69]<-"Activities"
 final_data_sub<-final_data_sub[,c(1,2,69,3:68)]
 
 ##Creat tidy data set with average of each variable.
-final_tidy_data<-aggregate(x=final_data_sub[,4:68], by=list(final_data_sub$Subject_num,final_data_sub$Activities), FUN="mean")
+final_tidy_data<-aggregate(x=final_data_sub[,4:69], by=list(final_data_sub$Subject_num,final_data_sub$Activities), FUN="mean")
 colnames(final_tidy_data)[1]<-"Subject_num"
 colnames(final_tidy_data)[2]<-"Activities"
 
